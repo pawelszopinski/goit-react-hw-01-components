@@ -1,3 +1,4 @@
+import styles from './Statistics.module.css'
 const Statistics = ({ title, stats }) => {
   function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215)
@@ -5,18 +6,18 @@ const Statistics = ({ title, stats }) => {
       .padStart(6, 0)}`;
   }
   return (
-    <section className="statistics">
-      {title && <h2 className="title">{title}</h2>}
+    <section className={styles.statistics}>
+      {title && <h2 className={styles.title}>{title}</h2>}
 
-      <ul className="stat-list">
+      <ul className={styles['stat-list']}>
         {stats.map(stat => (
           <li
             key={stat.id}
-            className="item"
+            className={styles.item}
             style={{ backgroundColor: getRandomHexColor() }}
           >
-            <span className="label">{stat.label}</span>
-            <span className="percentage">{`${stat.percentage}%`}</span>
+            <span className={styles.label}>{stat.label}</span>
+            <span className={styles.percentage}>{`${stat.percentage}%`}</span>
           </li>
         ))}
       </ul>
